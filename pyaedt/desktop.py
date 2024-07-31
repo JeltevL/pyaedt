@@ -453,15 +453,15 @@ class Desktop(object):
             try:
                 # for the moment aedt supports only one desktop, which is saved in sessions[0]
                 process_id = _desktop_sessions[sessions[0]].odesktop.GetProcessID()
-                print("Returning found desktop with PID {}!".format(process_id))
+                # print("Returning found desktop with PID {}!".format(process_id))
                 cls._invoked_from_design = False
                 return _desktop_sessions[sessions[0]]
             except:
                 del _desktop_sessions[sessions[0]]
-                print("Initializing new desktop!")
+                # print("Initializing new desktop!")
                 return object.__new__(cls)
         else:
-            print("Initializing new desktop!")
+            # print("Initializing new desktop!")
             return object.__new__(cls)
 
     def __init__(
@@ -769,10 +769,11 @@ class Desktop(object):
         if float(specified_version[0:6]) < 2019:
             raise ValueError("PyAEDT supports AEDT version 2021 R1 and later. Recommended version is 2022 R2 or later.")
         elif float(specified_version[0:6]) < 2022.2:
-            warnings.warn(
-                """PyAEDT has limited capabilities when used with an AEDT version earlier than 2022 R2.
-                Update your AEDT installation to 2022 R2 or later."""
-            )
+            pass
+            # warnings.warn(
+            #     """PyAEDT has limited capabilities when used with an AEDT version earlier than 2022 R2.
+            #     Update your AEDT installation to 2022 R2 or later."""
+            # )
         if not (specified_version in self.installed_versions):
             raise ValueError(
                 "Specified version {}{} is not installed on your system".format(

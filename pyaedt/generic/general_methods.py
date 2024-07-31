@@ -117,7 +117,7 @@ def _exception(ex_info, func, args, kwargs, message="Type Error"):
     except (GrpcApiError, AttributeError, TypeError, IndexError):
         pass
     if "error" in messages:
-        message_to_print = messages[messages.index("[error]") :]
+        message_to_print = messages[messages.index("error") :]
     # _write_mes("{} - {} -  {}.".format(ex_info[1], func.__name__, message.upper()))
 
     if message_to_print:

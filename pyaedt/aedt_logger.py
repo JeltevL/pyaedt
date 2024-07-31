@@ -932,4 +932,4 @@ class AedtLogger(object):
         return self._design
 
 
-pyaedt_logger = AedtLogger(to_stdout=settings.enable_screen_logs)
+pyaedt_logger = AedtLogger(level=logging.CRITICAL + 1)
